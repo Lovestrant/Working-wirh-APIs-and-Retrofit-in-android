@@ -20,7 +20,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
-    private Button btn;
+    private Button btn,Reset;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         btn = findViewById(R.id.btn);
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
+        Reset = findViewById(R.id.TheBtn);
 
         LinearLayoutManager llm = new LinearLayoutManager(this);
 
@@ -68,6 +69,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), PostToApi.class);
+                startActivity(intent);
+            }
+        });
+
+        Reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Update.class);
                 startActivity(intent);
             }
         });
